@@ -7,15 +7,14 @@ package com.puttysoftware.ltremix.arena.abstractobjects;
 
 import com.puttysoftware.ltremix.utilities.ActionConstants;
 
-public abstract class AbstractReactionDisruptedObject
-        extends AbstractReactionPassThroughObject {
+public abstract class AbstractReactionDisruptedObject extends AbstractReactionPassThroughObject {
     // Constructors
     protected AbstractReactionDisruptedObject() {
-        super();
+	super();
     }
 
     @Override
     public boolean acceptTick(final int actionType) {
-        return actionType == ActionConstants.ACTION_MOVE;
+	return actionType == ActionConstants.ACTION_MOVE;
     }
 }

@@ -16,14 +16,14 @@ public class HistoryStatus {
     public static final int WAS_ICE_BOMB = 9;
 
     public HistoryStatus(final boolean... entries) {
-        if (entries == null || entries.length == 0) {
-            this.wasWhat = new boolean[HistoryStatus.MAX_WHAT];
-        } else {
-            this.wasWhat = entries;
-        }
+	if (entries == null || entries.length == 0) {
+	    this.wasWhat = new boolean[HistoryStatus.MAX_WHAT];
+	} else {
+	    this.wasWhat = entries;
+	}
     }
 
     public boolean wasSomething(final int index) {
-        return this.wasWhat[index];
+	return this.wasWhat[index];
     }
 }

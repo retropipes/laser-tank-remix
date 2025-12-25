@@ -10,21 +10,21 @@ import com.puttysoftware.ltremix.arena.abstractobjects.AbstractCharacter;
 public class FrozenTank extends AbstractCharacter {
     // Constructors
     public FrozenTank() {
-        super(true, 0);
+	super(true, 0);
     }
 
     public FrozenTank(final int dir, final int instance) {
-        super(true, instance);
-        this.setDirection(dir);
+	super(true, instance);
+	this.setDirection(dir);
     }
 
     @Override
     public final int getStringBaseID() {
-        return 15;
+	return 15;
     }
 
     @Override
     public boolean isDirectional() {
-        return true;
+	return true;
     }
 }

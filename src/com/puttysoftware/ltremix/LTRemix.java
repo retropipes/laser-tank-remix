@@ -17,7 +17,7 @@ import com.puttysoftware.platform.Platform;
 
 public class LTRemix {
     private LTRemix() {
-        // Do nothing
+	// Do nothing
     }
 
     // Constants
@@ -28,13 +28,12 @@ public class LTRemix {
 
     // Methods
     public static Application getApplication() {
-        return LTRemix.application;
+	return LTRemix.application;
     }
 
     public static void logError(final Throwable t) {
-        CommonDialogs.showErrorDialog(LTRemix.ERROR_MESSAGE,
-                LTRemix.ERROR_TITLE);
-        Diane.handleError(t);
+	CommonDialogs.showErrorDialog(LTRemix.ERROR_MESSAGE, LTRemix.ERROR_TITLE);
+	Diane.handleError(t);
     }
 
     public static void logErrorDirectly(final Throwable t) {
@@ -46,61 +45,52 @@ public class LTRemix {
     }
 
     public static void main(final String[] args) {
-        try {
-            try {
-                // Initialize strings
-                LTRemix.initStrings();
-                // Initialize error logger
-                Diane.installDefaultErrorHandler(PROGRAM_NAME);
-                // Auto-compute graphic size
-                ImageManager.autoSetGraphicSize();
-            } catch (final RuntimeException re) {
-                // Something has gone horribly wrong
-                CommonDialogs.showErrorDialog(
-                        "Something has gone horribly wrong trying to load the string data!",
-                        "FATAL ERROR");
-                System.exit(1);
-            }
-            // Create and initialize application
-            LTRemix.application = new Application();
-            LTRemix.application.postConstruct();
-            // Set Up Common Dialogs
-            CommonDialogs.setDefaultTitle(LTRemix.PROGRAM_NAME);
-            CommonDialogs.setIcon(LogoManager.getMicroLogo());
-            // Initialize preferences
-            PreferencesManager.readPrefs();
-            StringLoader
-                    .activeLanguageChanged(PreferencesManager.getLanguageID());
-            // Register platform hooks
-            Platform.hookAbout(LTRemix.application.getAboutDialog(),
-                    LTRemix.application.getAboutDialog().getClass()
-                            .getDeclaredMethod(StringLoader.loadString(
-                                    StringConstants.NOTL_STRINGS_FILE,
-                                    StringConstants.NOTL_STRING_SHOW_ABOUT_DIALOG_METHOD)));
-            Platform.hookPreferences(PreferencesManager.class,
-                    PreferencesManager.class.getDeclaredMethod(StringLoader
-                            .loadString(StringConstants.NOTL_STRINGS_FILE,
-                                    StringConstants.NOTL_STRING_SHOW_PREFERENCES_METHOD)));
-            Platform.hookQuit(LTRemix.application.getGUIManager(),
-                    LTRemix.application.getGUIManager().getClass()
-                            .getDeclaredMethod(StringLoader.loadString(
-                                    StringConstants.NOTL_STRINGS_FILE,
-                                    StringConstants.NOTL_STRING_QUIT_HANDLER_METHOD)));
-            Platform.hookDockIcon(LogoManager.getMiniatureLogo());
-            // Display GUI
-            LTRemix.application.getGUIManager().showGUI();
-        } catch (final Throwable t) {
-            LTRemix.logError(t);
-        }
+	try {
+	    try {
+		// Initialize strings
+		LTRemix.initStrings();
+		// Initialize error logger
+		Diane.installDefaultErrorHandler(PROGRAM_NAME);
+		// Auto-compute graphic size
+		ImageManager.autoSetGraphicSize();
+	    } catch (final RuntimeException re) {
+		// Something has gone horribly wrong
+		CommonDialogs.showErrorDialog("Something has gone horribly wrong trying to load the string data!",
+			"FATAL ERROR");
+		System.exit(1);
+	    }
+	    // Create and initialize application
+	    LTRemix.application = new Application();
+	    LTRemix.application.postConstruct();
+	    // Set Up Common Dialogs
+	    CommonDialogs.setDefaultTitle(LTRemix.PROGRAM_NAME);
+	    CommonDialogs.setIcon(LogoManager.getMicroLogo());
+	    // Initialize preferences
+	    PreferencesManager.readPrefs();
+	    StringLoader.activeLanguageChanged(PreferencesManager.getLanguageID());
+	    // Register platform hooks
+	    Platform.hookAbout(LTRemix.application.getAboutDialog(),
+		    LTRemix.application.getAboutDialog().getClass().getDeclaredMethod(StringLoader.loadString(
+			    StringConstants.NOTL_STRINGS_FILE, StringConstants.NOTL_STRING_SHOW_ABOUT_DIALOG_METHOD)));
+	    Platform.hookPreferences(PreferencesManager.class,
+		    PreferencesManager.class.getDeclaredMethod(StringLoader.loadString(
+			    StringConstants.NOTL_STRINGS_FILE, StringConstants.NOTL_STRING_SHOW_PREFERENCES_METHOD)));
+	    Platform.hookQuit(LTRemix.application.getGUIManager(),
+		    LTRemix.application.getGUIManager().getClass().getDeclaredMethod(StringLoader.loadString(
+			    StringConstants.NOTL_STRINGS_FILE, StringConstants.NOTL_STRING_QUIT_HANDLER_METHOD)));
+	    Platform.hookDockIcon(LogoManager.getMiniatureLogo());
+	    // Display GUI
+	    LTRemix.application.getGUIManager().showGUI();
+	} catch (final Throwable t) {
+	    LTRemix.logError(t);
+	}
     }
 
     private static void initStrings() {
-        StringLoader.setDefaultLanguage();
-        LTRemix.ERROR_TITLE = StringLoader.loadString(
-                StringConstants.ERROR_STRINGS_FILE,
-                StringConstants.ERROR_STRING_ERROR_TITLE);
-        LTRemix.ERROR_MESSAGE = StringLoader.loadString(
-                StringConstants.ERROR_STRINGS_FILE,
-                StringConstants.ERROR_STRING_ERROR_MESSAGE);
+	StringLoader.setDefaultLanguage();
+	LTRemix.ERROR_TITLE = StringLoader.loadString(StringConstants.ERROR_STRINGS_FILE,
+		StringConstants.ERROR_STRING_ERROR_TITLE);
+	LTRemix.ERROR_MESSAGE = StringLoader.loadString(StringConstants.ERROR_STRINGS_FILE,
+		StringConstants.ERROR_STRING_ERROR_MESSAGE);
     }
 }

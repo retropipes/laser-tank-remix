@@ -19,47 +19,46 @@ public class AntiTankDisguise extends AbstractCharacter {
 
     // Constructors
     public AntiTankDisguise() {
-        super(true, 0);
-        this.disguiseLeft = AntiTankDisguise.DISGUISE_LENGTH;
-        this.activateTimer(1);
-        this.setDirection(DirectionConstants.NORTH);
-        this.setFrameNumber(1);
+	super(true, 0);
+	this.disguiseLeft = AntiTankDisguise.DISGUISE_LENGTH;
+	this.activateTimer(1);
+	this.setDirection(DirectionConstants.NORTH);
+	this.setFrameNumber(1);
     }
 
-    public AntiTankDisguise(final int dir, final boolean useTimer,
-            final int instance) {
-        super(useTimer, instance);
-        if (useTimer) {
-            this.disguiseLeft = AntiTankDisguise.DISGUISE_LENGTH;
-            this.activateTimer(1);
-        }
-        this.setDirection(dir);
-        this.setFrameNumber(1);
+    public AntiTankDisguise(final int dir, final boolean useTimer, final int instance) {
+	super(useTimer, instance);
+	if (useTimer) {
+	    this.disguiseLeft = AntiTankDisguise.DISGUISE_LENGTH;
+	    this.activateTimer(1);
+	}
+	this.setDirection(dir);
+	this.setFrameNumber(1);
     }
 
     @Override
     public boolean isDirectional() {
-        return true;
+	return true;
     }
 
     @Override
     public final int getStringBaseID() {
-        return 0;
+	return 0;
     }
 
     @Override
     public boolean acceptTick(final int actionType) {
-        return actionType == ActionConstants.ACTION_MOVE;
+	return actionType == ActionConstants.ACTION_MOVE;
     }
 
     @Override
     public void timerExpiredAction(final int locX, final int locY) {
-        this.disguiseLeft--;
-        if (this.disguiseLeft == 0) {
-            SoundManager.playSound(SoundConstants.SOUND_DISRUPT_END);
-            LTRemix.getApplication().getGameManager().setNormalTank();
-        } else {
-            this.activateTimer(1);
-        }
+	this.disguiseLeft--;
+	if (this.disguiseLeft == 0) {
+	    SoundManager.playSound(SoundConstants.SOUND_DISRUPT_END);
+	    LTRemix.getApplication().getGameManager().setNormalTank();
+	} else {
+	    this.activateTimer(1);
+	}
     }
 }

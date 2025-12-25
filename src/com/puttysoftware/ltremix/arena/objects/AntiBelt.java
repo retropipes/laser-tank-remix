@@ -13,20 +13,19 @@ import com.puttysoftware.ltremix.resourcemanagers.SoundManager;
 public class AntiBelt extends AbstractSpell {
     // Constructors
     public AntiBelt() {
-        super();
+	super();
     }
 
     // Scriptability
     @Override
     public void postMoveAction(final int dirX, final int dirY, final int dirZ) {
-        SoundManager.playSound(SoundConstants.SOUND_DISRUPTED);
-        LTRemix.getApplication().getGameManager().setDisguisedTank(true);
-        LTRemix.getApplication().getGameManager().morph(new Empty(), dirX, dirY,
-                dirZ, this.getPrimaryLayer());
+	SoundManager.playSound(SoundConstants.SOUND_DISRUPTED);
+	LTRemix.getApplication().getGameManager().setDisguisedTank(true);
+	LTRemix.getApplication().getGameManager().morph(new Empty(), dirX, dirY, dirZ, this.getPrimaryLayer());
     }
 
     @Override
     public final int getStringBaseID() {
-        return 144;
+	return 144;
     }
 }

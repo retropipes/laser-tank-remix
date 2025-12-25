@@ -13,21 +13,19 @@ import com.puttysoftware.ltremix.resourcemanagers.SoundManager;
 public class KillSpell extends AbstractSpell {
     // Constructors
     public KillSpell() {
-        super();
+	super();
     }
 
     // Scriptability
     @Override
     public void postMoveAction(final int dirX, final int dirY, final int dirZ) {
-        SoundManager.playSound(SoundConstants.SOUND_KILL_SPELL);
-        LTRemix.getApplication().getArenaManager().getArena()
-                .fullScanKillTanks();
-        LTRemix.getApplication().getGameManager().morph(new Empty(), dirX, dirY,
-                dirZ, this.getPrimaryLayer());
+	SoundManager.playSound(SoundConstants.SOUND_KILL_SPELL);
+	LTRemix.getApplication().getArenaManager().getArena().fullScanKillTanks();
+	LTRemix.getApplication().getGameManager().morph(new Empty(), dirX, dirY, dirZ, this.getPrimaryLayer());
     }
 
     @Override
     public final int getStringBaseID() {
-        return 143;
+	return 143;
     }
 }

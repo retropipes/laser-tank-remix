@@ -10,21 +10,21 @@ import com.puttysoftware.ltremix.arena.abstractobjects.AbstractTransientObject;
 public class RedLaser extends AbstractTransientObject {
     // Constructors
     public RedLaser() {
-        super();
+	super();
     }
 
     @Override
     public final int getStringBaseID() {
-        return 30;
+	return 30;
     }
 
     @Override
     public int getForceUnitsImbued() {
-        return 1;
+	return 1;
     }
 
     @Override
     public boolean isDirectional() {
-        return true;
+	return true;
     }
 }

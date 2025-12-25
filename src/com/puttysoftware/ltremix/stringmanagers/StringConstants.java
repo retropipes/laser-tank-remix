@@ -27,23 +27,16 @@ public class StringConstants {
     private static final String EDITOR_STRINGS_FILE_NAME = "editor";
     private static final String GAME_STRINGS_FILE_NAME = "game";
     private static final String TIME_STRINGS_FILE_NAME = "time";
-    static final String[] STRINGS_FILES = new String[] {
-            StringConstants.DIFFICULTY_STRINGS_FILE_NAME,
-            StringConstants.ERROR_STRINGS_FILE_NAME,
-            StringConstants.PREFS_STRINGS_FILE_NAME,
-            StringConstants.GENERIC_STRINGS_FILE_NAME,
-            StringConstants.OBJECT_STRINGS_FILE_NAME,
-            StringConstants.MENU_STRINGS_FILE_NAME,
-            StringConstants.DIALOG_STRINGS_FILE_NAME,
-            StringConstants.MESSAGE_STRINGS_FILE_NAME,
-            StringConstants.EDITOR_STRINGS_FILE_NAME,
-            StringConstants.GAME_STRINGS_FILE_NAME,
-            StringConstants.TIME_STRINGS_FILE_NAME };
+    static final String[] STRINGS_FILES = new String[] { StringConstants.DIFFICULTY_STRINGS_FILE_NAME,
+	    StringConstants.ERROR_STRINGS_FILE_NAME, StringConstants.PREFS_STRINGS_FILE_NAME,
+	    StringConstants.GENERIC_STRINGS_FILE_NAME, StringConstants.OBJECT_STRINGS_FILE_NAME,
+	    StringConstants.MENU_STRINGS_FILE_NAME, StringConstants.DIALOG_STRINGS_FILE_NAME,
+	    StringConstants.MESSAGE_STRINGS_FILE_NAME, StringConstants.EDITOR_STRINGS_FILE_NAME,
+	    StringConstants.GAME_STRINGS_FILE_NAME, StringConstants.TIME_STRINGS_FILE_NAME };
     private static final String LANGUAGE_STRINGS_FILE_NAME = "languages";
     private static final String NOTL_STRINGS_FILE_NAME = "notranslate";
-    static final String[] LANGUAGE_STRINGS_FILES = new String[] {
-            StringConstants.LANGUAGE_STRINGS_FILE_NAME,
-            StringConstants.NOTL_STRINGS_FILE_NAME };
+    static final String[] LANGUAGE_STRINGS_FILES = new String[] { StringConstants.LANGUAGE_STRINGS_FILE_NAME,
+	    StringConstants.NOTL_STRINGS_FILE_NAME };
     static final String LOCALIZED_LANGUAGE_FILE_NAME = "localizedlanguages.txt";
     // No Translate String Constants
     public static final int NOTL_STRING_OS_NAME = 0;
@@ -387,6 +380,6 @@ public class StringConstants {
 
     // Private constructor
     private StringConstants() {
-        // Do nothing
+	// Do nothing
     }
 }

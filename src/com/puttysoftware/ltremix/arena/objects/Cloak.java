@@ -17,45 +17,40 @@ import com.puttysoftware.ltremix.utilities.TypeConstants;
 public class Cloak extends AbstractAttribute {
     // Constructors
     public Cloak() {
-        super();
-        this.type.set(TypeConstants.TYPE_CLOAK);
+	super();
+	this.type.set(TypeConstants.TYPE_CLOAK);
     }
 
     @Override
     public final int getStringBaseID() {
-        return 135;
+	return 135;
     }
 
     @Override
     public AbstractArenaObject attributeGameRenderHook() {
-        return new Empty();
+	return new Empty();
     }
 
     @Override
-    public int laserEnteredAction(final int locX, final int locY,
-            final int locZ, final int dirX, final int dirY, final int laserType,
-            final int forceUnits) {
-        final Application app = LTRemix.getApplication();
-        app.getGameManager().morph(new Empty(), locX, locY, locZ,
-                this.getPrimaryLayer());
-        SoundManager.playSound(SoundConstants.SOUND_DISCOVER);
-        return DirectionConstants.NONE;
+    public int laserEnteredAction(final int locX, final int locY, final int locZ, final int dirX, final int dirY,
+	    final int laserType, final int forceUnits) {
+	final Application app = LTRemix.getApplication();
+	app.getGameManager().morph(new Empty(), locX, locY, locZ, this.getPrimaryLayer());
+	SoundManager.playSound(SoundConstants.SOUND_DISCOVER);
+	return DirectionConstants.NONE;
     }
 
     @Override
     public void postMoveAction(final int locX, final int locY, final int locZ) {
-        final Application app = LTRemix.getApplication();
-        app.getGameManager().morph(new Empty(), locX, locY, locZ,
-                this.getPrimaryLayer());
-        SoundManager.playSound(SoundConstants.SOUND_DISCOVER);
+	final Application app = LTRemix.getApplication();
+	app.getGameManager().morph(new Empty(), locX, locY, locZ, this.getPrimaryLayer());
+	SoundManager.playSound(SoundConstants.SOUND_DISCOVER);
     }
 
     @Override
-    public void moveFailedAction(final int locX, final int locY,
-            final int locZ) {
-        final Application app = LTRemix.getApplication();
-        app.getGameManager().morph(new Empty(), locX, locY, locZ,
-                this.getPrimaryLayer());
-        SoundManager.playSound(SoundConstants.SOUND_DISCOVER);
+    public void moveFailedAction(final int locX, final int locY, final int locZ) {
+	final Application app = LTRemix.getApplication();
+	app.getGameManager().morph(new Empty(), locX, locY, locZ, this.getPrimaryLayer());
+	SoundManager.playSound(SoundConstants.SOUND_DISCOVER);
     }
 }

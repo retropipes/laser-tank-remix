@@ -13,19 +13,18 @@ import com.puttysoftware.ltremix.resourcemanagers.SoundManager;
 public class PowerBolt extends AbstractField {
     // Constructors
     public PowerBolt() {
-        super();
+	super();
     }
 
     @Override
     public void postMoveAction(final int dirX, final int dirY, final int dirZ) {
-        SoundManager.playSound(SoundConstants.SOUND_POWERFUL);
-        LTRemix.getApplication().getGameManager().morph(new Empty(), dirX, dirY,
-                dirZ, this.getPrimaryLayer());
-        LTRemix.getApplication().getGameManager().setPowerfulTank(true);
+	SoundManager.playSound(SoundConstants.SOUND_POWERFUL);
+	LTRemix.getApplication().getGameManager().morph(new Empty(), dirX, dirY, dirZ, this.getPrimaryLayer());
+	LTRemix.getApplication().getGameManager().setPowerfulTank(true);
     }
 
     @Override
     public final int getStringBaseID() {
-        return 139;
+	return 139;
     }
 }

@@ -12,19 +12,19 @@ import com.puttysoftware.ltremix.utilities.TypeConstants;
 public class MirrorMover extends AbstractMover {
     // Constructors
     public MirrorMover() {
-        super(true);
-        this.setDirection(DirectionConstants.NORTH);
-        this.setFrameNumber(1);
-        this.type.set(TypeConstants.TYPE_MIRROR_MOVER);
+	super(true);
+	this.setDirection(DirectionConstants.NORTH);
+	this.setFrameNumber(1);
+	this.type.set(TypeConstants.TYPE_MIRROR_MOVER);
     }
 
     @Override
     public final int getStringBaseID() {
-        return 125;
+	return 125;
     }
 
     @Override
     public boolean isDirectional() {
-        return true;
+	return true;
     }
 }

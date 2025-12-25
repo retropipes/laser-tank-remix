@@ -15,110 +15,110 @@ public abstract class AbstractRemoteControlObject extends AbstractArenaObject {
 
     // Constructors
     protected AbstractRemoteControlObject() {
-        super(false);
-        this.type.set(TypeConstants.TYPE_REMOTE_CONTROL);
-        this.remoteX = 0;
-        this.remoteY = 0;
+	super(false);
+	this.type.set(TypeConstants.TYPE_REMOTE_CONTROL);
+	this.remoteX = 0;
+	this.remoteY = 0;
     }
 
     @Override
     public int hashCode() {
-        final int prime = 31;
-        int result = super.hashCode();
-        result = prime * result + this.remoteX;
-        result = prime * result + this.remoteY;
-        return result;
+	final int prime = 31;
+	int result = super.hashCode();
+	result = prime * result + this.remoteX;
+	result = prime * result + this.remoteY;
+	return result;
     }
 
     @Override
     public boolean equals(final Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (!super.equals(obj)) {
-            return false;
-        }
-        if (!(obj instanceof AbstractRemoteControlObject)) {
-            return false;
-        }
-        final AbstractRemoteControlObject other = (AbstractRemoteControlObject) obj;
-        if (this.remoteX != other.remoteX) {
-            return false;
-        }
-        if (this.remoteY != other.remoteY) {
-            return false;
-        }
-        return true;
+	if (this == obj) {
+	    return true;
+	}
+	if (!super.equals(obj)) {
+	    return false;
+	}
+	if (!(obj instanceof AbstractRemoteControlObject)) {
+	    return false;
+	}
+	final AbstractRemoteControlObject other = (AbstractRemoteControlObject) obj;
+	if (this.remoteX != other.remoteX) {
+	    return false;
+	}
+	if (this.remoteY != other.remoteY) {
+	    return false;
+	}
+	return true;
     }
 
     @Override
     public AbstractRemoteControlObject clone() {
-        final AbstractRemoteControlObject copy = (AbstractRemoteControlObject) super.clone();
-        copy.remoteX = this.remoteX;
-        copy.remoteY = this.remoteY;
-        return copy;
+	final AbstractRemoteControlObject copy = (AbstractRemoteControlObject) super.clone();
+	copy.remoteX = this.remoteX;
+	copy.remoteY = this.remoteY;
+	return copy;
     }
 
     public int getRemoteX() {
-        return this.remoteX;
+	return this.remoteX;
     }
 
     public void setRemoteX(final int newRemoteX) {
-        this.remoteX = newRemoteX;
+	this.remoteX = newRemoteX;
     }
 
     public int getRemoteY() {
-        return this.remoteY;
+	return this.remoteY;
     }
 
     public void setRemoteY(final int newRemoteY) {
-        this.remoteY = newRemoteY;
+	this.remoteY = newRemoteY;
     }
 
     @Override
     public AbstractArenaObject editorPropertiesHook() {
-        LTRemix.getApplication().getEditor().editRemoteController(this);
-        return this;
+	LTRemix.getApplication().getEditor().editRemoteController(this);
+	return this;
     }
 
     @Override
     public void postMoveAction(final int dirX, final int dirY, final int dirZ) {
-        // Do nothing
+	// Do nothing
     }
 
     @Override
     public int getPrimaryLayer() {
-        return ArenaConstants.LAYER_LOWER_OBJECTS;
+	return ArenaConstants.LAYER_LOWER_OBJECTS;
     }
 
     @Override
     public int getCustomFormat() {
-        return 2;
+	return 2;
     }
 
     @Override
     public int getCustomProperty(final int propID) {
-        switch (propID) {
-            case 1:
-                return this.remoteX;
-            case 2:
-                return this.remoteY;
-            default:
-                return AbstractArenaObject.DEFAULT_CUSTOM_VALUE;
-        }
+	switch (propID) {
+	case 1:
+	    return this.remoteX;
+	case 2:
+	    return this.remoteY;
+	default:
+	    return AbstractArenaObject.DEFAULT_CUSTOM_VALUE;
+	}
     }
 
     @Override
     public void setCustomProperty(final int propID, final int value) {
-        switch (propID) {
-            case 1:
-                this.remoteX = value;
-                break;
-            case 2:
-                this.remoteY = value;
-                break;
-            default:
-                break;
-        }
+	switch (propID) {
+	case 1:
+	    this.remoteX = value;
+	    break;
+	case 2:
+	    this.remoteY = value;
+	    break;
+	default:
+	    break;
+	}
     }
 }

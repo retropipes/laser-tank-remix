@@ -13,21 +13,19 @@ import com.puttysoftware.ltremix.resourcemanagers.SoundManager;
 public class FreezeSpell extends AbstractSpell {
     // Constructors
     public FreezeSpell() {
-        super();
+	super();
     }
 
     // Scriptability
     @Override
     public void postMoveAction(final int dirX, final int dirY, final int dirZ) {
-        SoundManager.playSound(SoundConstants.SOUND_FREEZE_SPELL);
-        LTRemix.getApplication().getArenaManager().getArena()
-                .fullScanFreezeGround();
-        LTRemix.getApplication().getGameManager().morph(new Empty(), dirX, dirY,
-                dirZ, this.getPrimaryLayer());
+	SoundManager.playSound(SoundConstants.SOUND_FREEZE_SPELL);
+	LTRemix.getApplication().getArenaManager().getArena().fullScanFreezeGround();
+	LTRemix.getApplication().getGameManager().morph(new Empty(), dirX, dirY, dirZ, this.getPrimaryLayer());
     }
 
     @Override
     public final int getStringBaseID() {
-        return 142;
+	return 142;
     }
 }

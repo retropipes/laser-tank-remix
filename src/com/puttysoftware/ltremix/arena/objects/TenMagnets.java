@@ -13,23 +13,23 @@ import com.puttysoftware.ltremix.utilities.TankInventory;
 public class TenMagnets extends AbstractInventoryModifier {
     // Constructors
     public TenMagnets() {
-        super();
+	super();
     }
 
     @Override
     public void postMoveAction(final int dirX, final int dirY, final int dirZ) {
-        final GameManager gm = LTRemix.getApplication().getGameManager();
-        TankInventory.addTenMagnets();
-        gm.morph(new Empty(), dirX, dirY, dirZ, this.getPrimaryLayer());
+	final GameManager gm = LTRemix.getApplication().getGameManager();
+	TankInventory.addTenMagnets();
+	gm.morph(new Empty(), dirX, dirY, dirZ, this.getPrimaryLayer());
     }
 
     @Override
     public boolean doLasersPassThrough() {
-        return true;
+	return true;
     }
 
     @Override
     public final int getStringBaseID() {
-        return 40;
+	return 40;
     }
 }

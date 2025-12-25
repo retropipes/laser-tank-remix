@@ -61,20 +61,16 @@ public class SoundConstants {
     public static final int SOUND_IDENTIFY = 51;
     public static final int SOUND_ERA_CHANGE = 52;
     // Package-Protected Constants
-    static final String[] SOUND_NAMES = { "anti_tank_die", "anti_tank_fire",
-            "bricks", "bump_head", "die", "end_level", "fire", "laser_die",
-            "move", "push_anti_tank", "push_box", "push_mirror", "reflect",
-            "rotate", "sink", "turn", "missile", "boom", "boost", "magnet",
-            "stun", "stunned", "stunner", "stun_off", "defrost", "frozen",
-            "down", "up", "ball_roll", "barrel", "grab", "unlock", "disruptor",
-            "disrupted", "disrupt_end", "wood_burn", "cool_off", "melt",
-            "crush", "button", "door_opens", "door_closes", "jumping",
-            "prepare", "crack", "discover", "power_tank", "power_laser",
-            "freeze_spell", "kill_spell", "control", "what_is_it",
-            "era_change" };
+    static final String[] SOUND_NAMES = { "anti_tank_die", "anti_tank_fire", "bricks", "bump_head", "die", "end_level",
+	    "fire", "laser_die", "move", "push_anti_tank", "push_box", "push_mirror", "reflect", "rotate", "sink",
+	    "turn", "missile", "boom", "boost", "magnet", "stun", "stunned", "stunner", "stun_off", "defrost", "frozen",
+	    "down", "up", "ball_roll", "barrel", "grab", "unlock", "disruptor", "disrupted", "disrupt_end", "wood_burn",
+	    "cool_off", "melt", "crush", "button", "door_opens", "door_closes", "jumping", "prepare", "crack",
+	    "discover", "power_tank", "power_laser", "freeze_spell", "kill_spell", "control", "what_is_it",
+	    "era_change" };
 
     // Private constructor
     private SoundConstants() {
-        // Do nothing
+	// Do nothing
     }
 }

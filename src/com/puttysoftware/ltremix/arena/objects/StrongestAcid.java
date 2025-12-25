@@ -18,55 +18,51 @@ import com.puttysoftware.ltremix.utilities.TypeConstants;
 public class StrongestAcid extends AbstractGround {
     // Constructors
     public StrongestAcid() {
-        super();
-        this.setFrameNumber(1);
-        this.setFrameCount(4);
-        this.setMaterial(MaterialConstants.MATERIAL_WOODEN);
+	super();
+	this.setFrameNumber(1);
+	this.setFrameCount(4);
+	this.setMaterial(MaterialConstants.MATERIAL_WOODEN);
     }
 
     // Scriptability
     @Override
-    public boolean pushIntoAction(final AbstractMovableObject pushed,
-            final int x, final int y, final int z) {
-        final Application app = LTRemix.getApplication();
-        // Get rid of pushed object
-        app.getGameManager().morph(new Empty(), x, y, z,
-                pushed.getPrimaryLayer());
-        if (pushed.isOfType(TypeConstants.TYPE_BOX) && pushed
-                .getMaterial() == MaterialConstants.MATERIAL_METALLIC) {
-            app.getGameManager().morph(new StrongerAcid(), x, y, z,
-                    this.getPrimaryLayer());
-        }
-        SoundManager.playSound(SoundConstants.SOUND_COOL_OFF);
-        return false;
+    public boolean pushIntoAction(final AbstractMovableObject pushed, final int x, final int y, final int z) {
+	final Application app = LTRemix.getApplication();
+	// Get rid of pushed object
+	app.getGameManager().morph(new Empty(), x, y, z, pushed.getPrimaryLayer());
+	if (pushed.isOfType(TypeConstants.TYPE_BOX) && pushed.getMaterial() == MaterialConstants.MATERIAL_METALLIC) {
+	    app.getGameManager().morph(new StrongerAcid(), x, y, z, this.getPrimaryLayer());
+	}
+	SoundManager.playSound(SoundConstants.SOUND_COOL_OFF);
+	return false;
     }
 
     @Override
     public boolean killsOnMove() {
-        return true;
+	return true;
     }
 
     @Override
     public final int getStringBaseID() {
-        return 149;
+	return 149;
     }
 
     @Override
     public AbstractArenaObject changesToOnExposure(final int materialID) {
-        switch (materialID) {
-            case MaterialConstants.MATERIAL_ICE:
-                final Ice i = new Ice();
-                i.setPreviousState(this);
-                return i;
-            case MaterialConstants.MATERIAL_FIRE:
-                return new StrongerAcid();
-            default:
-                return this;
-        }
+	switch (materialID) {
+	case MaterialConstants.MATERIAL_ICE:
+	    final Ice i = new Ice();
+	    i.setPreviousState(this);
+	    return i;
+	case MaterialConstants.MATERIAL_FIRE:
+	    return new StrongerAcid();
+	default:
+	    return this;
+	}
     }
 
     @Override
     public int getBlockHeight() {
-        return -1;
+	return -1;
     }
 }

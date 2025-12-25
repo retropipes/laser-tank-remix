@@ -18,61 +18,56 @@ import com.puttysoftware.ltremix.utilities.TypeConstants;
 public class DeeperWater extends AbstractGround {
     // Constructors
     public DeeperWater() {
-        super();
-        this.setFrameNumber(1);
-        this.setMaterial(MaterialConstants.MATERIAL_WOODEN);
+	super();
+	this.setFrameNumber(1);
+	this.setMaterial(MaterialConstants.MATERIAL_WOODEN);
     }
 
     // Scriptability
     @Override
-    public boolean pushIntoAction(final AbstractMovableObject pushed,
-            final int x, final int y, final int z) {
-        final Application app = LTRemix.getApplication();
-        if (pushed.isOfType(TypeConstants.TYPE_BOX)) {
-            // Get rid of pushed object
-            app.getGameManager().morph(new Empty(), x, y, z,
-                    pushed.getPrimaryLayer());
-            if (pushed.getMaterial() == MaterialConstants.MATERIAL_WOODEN) {
-                app.getGameManager().morph(new Bridge(), x, y, z,
-                        this.getPrimaryLayer());
-            } else {
-                app.getGameManager().morph(new DeepWater(), x, y, z,
-                        this.getPrimaryLayer());
-            }
-        } else {
-            app.getGameManager().morph(new Empty(), x, y, z,
-                    pushed.getPrimaryLayer());
-        }
-        SoundManager.playSound(SoundConstants.SOUND_SINK);
-        return false;
+    public boolean pushIntoAction(final AbstractMovableObject pushed, final int x, final int y, final int z) {
+	final Application app = LTRemix.getApplication();
+	if (pushed.isOfType(TypeConstants.TYPE_BOX)) {
+	    // Get rid of pushed object
+	    app.getGameManager().morph(new Empty(), x, y, z, pushed.getPrimaryLayer());
+	    if (pushed.getMaterial() == MaterialConstants.MATERIAL_WOODEN) {
+		app.getGameManager().morph(new Bridge(), x, y, z, this.getPrimaryLayer());
+	    } else {
+		app.getGameManager().morph(new DeepWater(), x, y, z, this.getPrimaryLayer());
+	    }
+	} else {
+	    app.getGameManager().morph(new Empty(), x, y, z, pushed.getPrimaryLayer());
+	}
+	SoundManager.playSound(SoundConstants.SOUND_SINK);
+	return false;
     }
 
     @Override
     public boolean killsOnMove() {
-        return true;
+	return true;
     }
 
     @Override
     public final int getStringBaseID() {
-        return 68;
+	return 68;
     }
 
     @Override
     public AbstractArenaObject changesToOnExposure(final int materialID) {
-        switch (materialID) {
-            case MaterialConstants.MATERIAL_ICE:
-                final Ice i = new Ice();
-                i.setPreviousState(this);
-                return i;
-            case MaterialConstants.MATERIAL_FIRE:
-                return new DeepWater();
-            default:
-                return this;
-        }
+	switch (materialID) {
+	case MaterialConstants.MATERIAL_ICE:
+	    final Ice i = new Ice();
+	    i.setPreviousState(this);
+	    return i;
+	case MaterialConstants.MATERIAL_FIRE:
+	    return new DeepWater();
+	default:
+	    return this;
+	}
     }
 
     @Override
     public int getBlockHeight() {
-        return -3;
+	return -3;
     }
 }

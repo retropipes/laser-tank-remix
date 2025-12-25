@@ -13,18 +13,17 @@ import com.puttysoftware.ltremix.resourcemanagers.SoundManager;
 public class FrostField extends AbstractField {
     // Constructors
     public FrostField() {
-        super();
+	super();
     }
 
     @Override
     public void postMoveAction(final int dirX, final int dirY, final int dirZ) {
-        SoundManager.playSound(SoundConstants.SOUND_FROZEN);
-        LTRemix.getApplication().getGameManager()
-                .updatePositionRelativeFrozen();
+	SoundManager.playSound(SoundConstants.SOUND_FROZEN);
+	LTRemix.getApplication().getGameManager().updatePositionRelativeFrozen();
     }
 
     @Override
     public final int getStringBaseID() {
-        return 14;
+	return 14;
     }
 }

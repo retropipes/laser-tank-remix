@@ -11,12 +11,12 @@ import com.puttysoftware.ltremix.utilities.ColorConstants;
 public class Tunnel extends AbstractTunnel {
     // Constructors
     public Tunnel() {
-        super();
-        this.setColor(ColorConstants.COLOR_GRAY);
+	super();
+	this.setColor(ColorConstants.COLOR_GRAY);
     }
 
     @Override
     public final int getStringBaseID() {
-        return 44;
+	return 44;
     }
 }

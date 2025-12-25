@@ -24,46 +24,40 @@ public class FormatConstants {
     public static final int ARENA_FORMAT_LATEST = 21;
 
     private FormatConstants() {
-        // Do nothing
+	// Do nothing
     }
 
     public static final boolean isMoveShootAllowed(final int ver) {
-        return ver >= FormatConstants.ARENA_FORMAT_11;
+	return ver >= FormatConstants.ARENA_FORMAT_11;
     }
 
     public static final boolean isFormatVersionValidGeneration7(final int ver) {
-        return ver == FormatConstants.ARENA_FORMAT_21;
+	return ver == FormatConstants.ARENA_FORMAT_21;
     }
 
     public static final boolean isFormatVersionValidGeneration6(final int ver) {
-        return ver == FormatConstants.ARENA_FORMAT_19
-                || ver == FormatConstants.ARENA_FORMAT_20;
+	return ver == FormatConstants.ARENA_FORMAT_19 || ver == FormatConstants.ARENA_FORMAT_20;
     }
 
     public static final boolean isFormatVersionValidGeneration5(final int ver) {
-        return ver == FormatConstants.ARENA_FORMAT_12
-                || ver == FormatConstants.ARENA_FORMAT_15
-                || ver == FormatConstants.ARENA_FORMAT_16
-                || ver == FormatConstants.ARENA_FORMAT_17
-                || ver == FormatConstants.ARENA_FORMAT_18;
+	return ver == FormatConstants.ARENA_FORMAT_12 || ver == FormatConstants.ARENA_FORMAT_15
+		|| ver == FormatConstants.ARENA_FORMAT_16 || ver == FormatConstants.ARENA_FORMAT_17
+		|| ver == FormatConstants.ARENA_FORMAT_18;
     }
 
     public static final boolean isFormatVersionValidGeneration4(final int ver) {
-        return ver == FormatConstants.ARENA_FORMAT_10
-                || ver == FormatConstants.ARENA_FORMAT_11;
+	return ver == FormatConstants.ARENA_FORMAT_10 || ver == FormatConstants.ARENA_FORMAT_11;
     }
 
     public static final boolean isFormatVersionValidGeneration3(final int ver) {
-        return ver == FormatConstants.ARENA_FORMAT_9;
+	return ver == FormatConstants.ARENA_FORMAT_9;
     }
 
     public static final boolean isFormatVersionValidGeneration2(final int ver) {
-        return ver == FormatConstants.ARENA_FORMAT_7
-                || ver == FormatConstants.ARENA_FORMAT_8;
+	return ver == FormatConstants.ARENA_FORMAT_7 || ver == FormatConstants.ARENA_FORMAT_8;
     }
 
     public static final boolean isFormatVersionValidGeneration1(final int ver) {
-        return ver == FormatConstants.ARENA_FORMAT_5
-                || ver == FormatConstants.ARENA_FORMAT_6;
+	return ver == FormatConstants.ARENA_FORMAT_5 || ver == FormatConstants.ARENA_FORMAT_6;
     }
 }

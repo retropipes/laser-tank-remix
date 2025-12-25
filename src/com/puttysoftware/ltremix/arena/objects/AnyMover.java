@@ -12,19 +12,19 @@ import com.puttysoftware.ltremix.utilities.TypeConstants;
 public class AnyMover extends AbstractMover {
     // Constructors
     public AnyMover() {
-        super();
-        this.setDirection(DirectionConstants.NORTH);
-        this.setFrameNumber(1);
-        this.type.set(TypeConstants.TYPE_MOVER);
+	super();
+	this.setDirection(DirectionConstants.NORTH);
+	this.setFrameNumber(1);
+	this.type.set(TypeConstants.TYPE_MOVER);
     }
 
     @Override
     public final int getStringBaseID() {
-        return 151;
+	return 151;
     }
 
     @Override
     public boolean isDirectional() {
-        return true;
+	return true;
     }
 }

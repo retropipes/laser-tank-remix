@@ -18,23 +18,20 @@ public final class EraConstants {
 
     // Private Constructor
     private EraConstants() {
-        // Do nothing
+	// Do nothing
     }
 
     public static String[] getEraNames() {
-        if (EraConstants.ERA_NAMES == null) {
-            EraConstants.reloadEraNames();
-        }
-        return EraConstants.ERA_NAMES;
+	if (EraConstants.ERA_NAMES == null) {
+	    EraConstants.reloadEraNames();
+	}
+	return EraConstants.ERA_NAMES;
     }
 
     public static void reloadEraNames() {
-        EraConstants.ERA_NAMES = new String[] {
-                StringLoader.loadString(StringConstants.TIME_STRINGS_FILE,
-                        StringConstants.TIME_STRING_PAST),
-                StringLoader.loadString(StringConstants.TIME_STRINGS_FILE,
-                        StringConstants.TIME_STRING_PRESENT),
-                StringLoader.loadString(StringConstants.TIME_STRINGS_FILE,
-                        StringConstants.TIME_STRING_FUTURE) };
+	EraConstants.ERA_NAMES = new String[] {
+		StringLoader.loadString(StringConstants.TIME_STRINGS_FILE, StringConstants.TIME_STRING_PAST),
+		StringLoader.loadString(StringConstants.TIME_STRINGS_FILE, StringConstants.TIME_STRING_PRESENT),
+		StringLoader.loadString(StringConstants.TIME_STRINGS_FILE, StringConstants.TIME_STRING_FUTURE) };
     }
 }

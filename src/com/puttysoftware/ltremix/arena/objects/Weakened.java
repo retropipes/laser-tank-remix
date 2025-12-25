@@ -15,31 +15,27 @@ import com.puttysoftware.ltremix.utilities.DirectionConstants;
 public class Weakened extends AbstractAttribute {
     // Constructors
     public Weakened() {
-        super();
+	super();
     }
 
     @Override
     public final int getStringBaseID() {
-        return 134;
+	return 134;
     }
 
     @Override
-    public int laserEnteredAction(final int locX, final int locY,
-            final int locZ, final int dirX, final int dirY, final int laserType,
-            final int forceUnits) {
-        final Application app = LTRemix.getApplication();
-        app.getGameManager().morph(new Cracked(), locX, locY, locZ,
-                this.getPrimaryLayer());
-        SoundManager.playSound(SoundConstants.SOUND_CRACK);
-        return DirectionConstants.NONE;
+    public int laserEnteredAction(final int locX, final int locY, final int locZ, final int dirX, final int dirY,
+	    final int laserType, final int forceUnits) {
+	final Application app = LTRemix.getApplication();
+	app.getGameManager().morph(new Cracked(), locX, locY, locZ, this.getPrimaryLayer());
+	SoundManager.playSound(SoundConstants.SOUND_CRACK);
+	return DirectionConstants.NONE;
     }
 
     @Override
-    public void moveFailedAction(final int locX, final int locY,
-            final int locZ) {
-        final Application app = LTRemix.getApplication();
-        app.getGameManager().morph(new Cracked(), locX, locY, locZ,
-                this.getPrimaryLayer());
-        SoundManager.playSound(SoundConstants.SOUND_CRACK);
+    public void moveFailedAction(final int locX, final int locY, final int locZ) {
+	final Application app = LTRemix.getApplication();
+	app.getGameManager().morph(new Cracked(), locX, locY, locZ, this.getPrimaryLayer());
+	SoundManager.playSound(SoundConstants.SOUND_CRACK);
     }
 }

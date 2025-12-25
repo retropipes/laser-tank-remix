@@ -10,11 +10,11 @@ import com.puttysoftware.ltremix.arena.abstractobjects.AbstractRemoteControlObje
 public class RemoteController extends AbstractRemoteControlObject {
     // Constructors
     public RemoteController() {
-        super();
+	super();
     }
 
     @Override
     public final int getStringBaseID() {
-        return 150;
+	return 150;
     }
 }

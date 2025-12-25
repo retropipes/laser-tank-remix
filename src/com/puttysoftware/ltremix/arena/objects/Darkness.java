@@ -10,11 +10,11 @@ import com.puttysoftware.ltremix.arena.abstractobjects.AbstractAttribute;
 public class Darkness extends AbstractAttribute {
     // Constructors
     public Darkness() {
-        super();
+	super();
     }
 
     @Override
     public final int getStringBaseID() {
-        return 136;
+	return 136;
     }
 }

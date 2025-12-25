@@ -10,21 +10,21 @@ import com.puttysoftware.ltremix.arena.abstractobjects.AbstractTransientObject;
 public class Missile extends AbstractTransientObject {
     // Constructors
     public Missile() {
-        super();
+	super();
     }
 
     @Override
     public final int getStringBaseID() {
-        return 27;
+	return 27;
     }
 
     @Override
     public int getForceUnitsImbued() {
-        return 2;
+	return 2;
     }
 
     @Override
     public boolean isDirectional() {
-        return true;
+	return true;
     }
 }

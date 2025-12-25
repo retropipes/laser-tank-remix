@@ -12,19 +12,19 @@ import com.puttysoftware.ltremix.utilities.TypeConstants;
 public class AntiTankMover extends AbstractMover {
     // Constructors
     public AntiTankMover() {
-        super(true);
-        this.setDirection(DirectionConstants.NORTH);
-        this.setFrameNumber(1);
-        this.type.set(TypeConstants.TYPE_ANTI_MOVER);
+	super(true);
+	this.setDirection(DirectionConstants.NORTH);
+	this.setFrameNumber(1);
+	this.type.set(TypeConstants.TYPE_ANTI_MOVER);
     }
 
     @Override
     public final int getStringBaseID() {
-        return 1;
+	return 1;
     }
 
     @Override
     public boolean isDirectional() {
-        return true;
+	return true;
     }
 }

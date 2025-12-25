@@ -12,18 +12,17 @@ import com.puttysoftware.ltremix.utilities.TypeConstants;
 public class Empty extends AbstractPassThroughObject {
     // Constructors
     public Empty() {
-        super();
-        this.type.set(TypeConstants.TYPE_EMPTY_SPACE);
+	super();
+	this.type.set(TypeConstants.TYPE_EMPTY_SPACE);
     }
 
     @Override
     public int[] getSecondaryLayers() {
-        return new int[] { ArenaConstants.LAYER_UPPER_GROUND,
-                ArenaConstants.LAYER_UPPER_OBJECTS };
+	return new int[] { ArenaConstants.LAYER_UPPER_GROUND, ArenaConstants.LAYER_UPPER_OBJECTS };
     }
 
     @Override
     public final int getStringBaseID() {
-        return 130;
+	return 130;
     }
 }

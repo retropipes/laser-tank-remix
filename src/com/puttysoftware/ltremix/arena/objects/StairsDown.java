@@ -14,25 +14,24 @@ import com.puttysoftware.ltremix.resourcemanagers.SoundManager;
 public class StairsDown extends AbstractTeleport {
     // Constructors
     public StairsDown() {
-        super();
+	super();
     }
 
     @Override
     public int getDestinationFloor() {
-        final Application app = LTRemix.getApplication();
-        return app.getGameManager().getPlayerManager().getPlayerLocationZ() - 1;
+	final Application app = LTRemix.getApplication();
+	return app.getGameManager().getPlayerManager().getPlayerLocationZ() - 1;
     }
 
     @Override
     public void postMoveAction(final int dirX, final int dirY, final int dirZ) {
-        final Application app = LTRemix.getApplication();
-        app.getGameManager()
-                .updatePositionAbsoluteNoEvents(this.getDestinationFloor());
-        SoundManager.playSound(SoundConstants.SOUND_DOWN);
+	final Application app = LTRemix.getApplication();
+	app.getGameManager().updatePositionAbsoluteNoEvents(this.getDestinationFloor());
+	SoundManager.playSound(SoundConstants.SOUND_DOWN);
     }
 
     @Override
     public final int getStringBaseID() {
-        return 32;
+	return 32;
     }
 }

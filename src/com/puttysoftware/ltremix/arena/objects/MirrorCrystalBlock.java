@@ -20,96 +20,87 @@ import com.puttysoftware.ltremix.utilities.TypeConstants;
 public class MirrorCrystalBlock extends AbstractReactionWall {
     // Constructors
     public MirrorCrystalBlock() {
-        super();
-        this.type.set(TypeConstants.TYPE_PLAIN_WALL);
+	super();
+	this.type.set(TypeConstants.TYPE_PLAIN_WALL);
     }
 
     @Override
-    public int laserEnteredActionHook(final int locX, final int locY,
-            final int locZ, final int dirX, final int dirY, final int laserType,
-            final int forceUnits) {
-        if (laserType == LaserTypeConstants.LASER_TYPE_MISSILE) {
-            // Destroy mirror crystal block
-            SoundManager.playSound(SoundConstants.SOUND_BOOM);
-            LTRemix.getApplication().getGameManager().morph(new Empty(), locX,
-                    locY, locZ, this.getPrimaryLayer());
-            return DirectionConstants.NONE;
-        } else if (laserType == LaserTypeConstants.LASER_TYPE_BLUE) {
-            // Pass laser through
-            return DirectionResolver.resolveRelativeDirection(dirX, dirY);
-        } else if (laserType == LaserTypeConstants.LASER_TYPE_DISRUPTOR) {
-            // Disrupt mirror crystal block
-            SoundManager.playSound(SoundConstants.SOUND_DISRUPTED);
-            LTRemix.getApplication().getGameManager().morph(
-                    new DisruptedMirrorCrystalBlock(), locX, locY, locZ,
-                    this.getPrimaryLayer());
-            return DirectionConstants.NONE;
-        } else {
-            // Reflect laser
-            return DirectionResolver.resolveRelativeDirectionInvert(dirX, dirY);
-        }
+    public int laserEnteredActionHook(final int locX, final int locY, final int locZ, final int dirX, final int dirY,
+	    final int laserType, final int forceUnits) {
+	if (laserType == LaserTypeConstants.LASER_TYPE_MISSILE) {
+	    // Destroy mirror crystal block
+	    SoundManager.playSound(SoundConstants.SOUND_BOOM);
+	    LTRemix.getApplication().getGameManager().morph(new Empty(), locX, locY, locZ, this.getPrimaryLayer());
+	    return DirectionConstants.NONE;
+	} else if (laserType == LaserTypeConstants.LASER_TYPE_BLUE) {
+	    // Pass laser through
+	    return DirectionResolver.resolveRelativeDirection(dirX, dirY);
+	} else if (laserType == LaserTypeConstants.LASER_TYPE_DISRUPTOR) {
+	    // Disrupt mirror crystal block
+	    SoundManager.playSound(SoundConstants.SOUND_DISRUPTED);
+	    LTRemix.getApplication().getGameManager().morph(new DisruptedMirrorCrystalBlock(), locX, locY, locZ,
+		    this.getPrimaryLayer());
+	    return DirectionConstants.NONE;
+	} else {
+	    // Reflect laser
+	    return DirectionResolver.resolveRelativeDirectionInvert(dirX, dirY);
+	}
     }
 
     @Override
-    public int laserExitedAction(final int locX, final int locY, final int locZ,
-            final int dirX, final int dirY, final int laserType) {
-        return DirectionResolver.resolveRelativeDirection(dirX, dirY);
+    public int laserExitedAction(final int locX, final int locY, final int locZ, final int dirX, final int dirY,
+	    final int laserType) {
+	return DirectionResolver.resolveRelativeDirection(dirX, dirY);
     }
 
     @Override
-    public boolean rangeActionHook(final int locX, final int locY,
-            final int locZ, final int dirX, final int dirY, final int rangeType,
-            final int forceUnits) {
-        if (rangeType == RangeTypeConstants.RANGE_TYPE_BOMB
-                || RangeTypeConstants.getMaterialForRangeType(
-                        rangeType) == MaterialConstants.MATERIAL_METALLIC) {
-            // Destroy mirror crystal block
-            LTRemix.getApplication().getGameManager().morph(new Empty(),
-                    locX + dirX, locY + dirY, locZ, this.getPrimaryLayer());
-            return true;
-        } else if (RangeTypeConstants.getMaterialForRangeType(
-                rangeType) == MaterialConstants.MATERIAL_FIRE) {
-            // Heat up mirror crystal block
-            SoundManager.playSound(SoundConstants.SOUND_MELT);
-            LTRemix.getApplication().getGameManager().morph(
-                    this.changesToOnExposure(MaterialConstants.MATERIAL_FIRE),
-                    locX + dirX, locY + dirY, locZ, this.getPrimaryLayer());
-            return true;
-        } else if (RangeTypeConstants.getMaterialForRangeType(
-                rangeType) == MaterialConstants.MATERIAL_ICE) {
-            // Freeze mirror crystal block
-            SoundManager.playSound(SoundConstants.SOUND_FROZEN);
-            LTRemix.getApplication().getGameManager().morph(
-                    this.changesToOnExposure(MaterialConstants.MATERIAL_ICE),
-                    locX + dirX, locY + dirY, locZ, this.getPrimaryLayer());
-            return true;
-        } else {
-            // Do nothing
-            return true;
-        }
+    public boolean rangeActionHook(final int locX, final int locY, final int locZ, final int dirX, final int dirY,
+	    final int rangeType, final int forceUnits) {
+	if (rangeType == RangeTypeConstants.RANGE_TYPE_BOMB
+		|| RangeTypeConstants.getMaterialForRangeType(rangeType) == MaterialConstants.MATERIAL_METALLIC) {
+	    // Destroy mirror crystal block
+	    LTRemix.getApplication().getGameManager().morph(new Empty(), locX + dirX, locY + dirY, locZ,
+		    this.getPrimaryLayer());
+	    return true;
+	} else if (RangeTypeConstants.getMaterialForRangeType(rangeType) == MaterialConstants.MATERIAL_FIRE) {
+	    // Heat up mirror crystal block
+	    SoundManager.playSound(SoundConstants.SOUND_MELT);
+	    LTRemix.getApplication().getGameManager().morph(this.changesToOnExposure(MaterialConstants.MATERIAL_FIRE),
+		    locX + dirX, locY + dirY, locZ, this.getPrimaryLayer());
+	    return true;
+	} else if (RangeTypeConstants.getMaterialForRangeType(rangeType) == MaterialConstants.MATERIAL_ICE) {
+	    // Freeze mirror crystal block
+	    SoundManager.playSound(SoundConstants.SOUND_FROZEN);
+	    LTRemix.getApplication().getGameManager().morph(this.changesToOnExposure(MaterialConstants.MATERIAL_ICE),
+		    locX + dirX, locY + dirY, locZ, this.getPrimaryLayer());
+	    return true;
+	} else {
+	    // Do nothing
+	    return true;
+	}
     }
 
     @Override
     public boolean doLasersPassThrough() {
-        return true;
+	return true;
     }
 
     @Override
     public final int getStringBaseID() {
-        return 26;
+	return 26;
     }
 
     @Override
     public AbstractArenaObject changesToOnExposure(final int materialID) {
-        switch (materialID) {
-            case MaterialConstants.MATERIAL_ICE:
-                final IcyCrystalBlock icb = new IcyCrystalBlock();
-                icb.setPreviousState(this);
-                return icb;
-            case MaterialConstants.MATERIAL_FIRE:
-                return new HotCrystalBlock();
-            default:
-                return this;
-        }
+	switch (materialID) {
+	case MaterialConstants.MATERIAL_ICE:
+	    final IcyCrystalBlock icb = new IcyCrystalBlock();
+	    icb.setPreviousState(this);
+	    return icb;
+	case MaterialConstants.MATERIAL_FIRE:
+	    return new HotCrystalBlock();
+	default:
+	    return this;
+	}
     }
 }

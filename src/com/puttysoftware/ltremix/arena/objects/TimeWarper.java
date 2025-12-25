@@ -16,24 +16,22 @@ import com.puttysoftware.ltremix.stringmanagers.StringLoader;
 public class TimeWarper extends AbstractKey {
     // Constructors
     public TimeWarper() {
-        super();
+	super();
     }
 
     // Scriptability
     @Override
     public void postMoveAction(final int dirX, final int dirY, final int dirZ) {
-        SoundManager.playSound(SoundConstants.SOUND_ERA_CHANGE);
-        final Application app = LTRemix.getApplication();
-        app.getGameManager().allowTimeTravel();
-        app.showMessage(
-                StringLoader.loadString(StringConstants.TIME_STRINGS_FILE,
-                        StringConstants.TIME_STRING_TIME_TRAVEL_ENABLED));
-        app.getGameManager().morph(new Empty(), dirX, dirY, dirZ,
-                this.getPrimaryLayer());
+	SoundManager.playSound(SoundConstants.SOUND_ERA_CHANGE);
+	final Application app = LTRemix.getApplication();
+	app.getGameManager().allowTimeTravel();
+	app.showMessage(StringLoader.loadString(StringConstants.TIME_STRINGS_FILE,
+		StringConstants.TIME_STRING_TIME_TRAVEL_ENABLED));
+	app.getGameManager().morph(new Empty(), dirX, dirY, dirZ, this.getPrimaryLayer());
     }
 
     @Override
     public final int getStringBaseID() {
-        return 153;
+	return 153;
     }
 }

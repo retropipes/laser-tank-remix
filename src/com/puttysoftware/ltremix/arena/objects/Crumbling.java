@@ -16,37 +16,31 @@ import com.puttysoftware.ltremix.utilities.DirectionConstants;
 public class Crumbling extends AbstractAttribute {
     // Constructors
     public Crumbling() {
-        super();
+	super();
     }
 
     @Override
     public final int getStringBaseID() {
-        return 132;
+	return 132;
     }
 
     @Override
-    public int laserEnteredAction(final int locX, final int locY,
-            final int locZ, final int dirX, final int dirY, final int laserType,
-            final int forceUnits) {
-        final Application app = LTRemix.getApplication();
-        app.getGameManager().morph(new Empty(), locX, locY, locZ,
-                this.getPrimaryLayer());
-        // Destroy whatever we were attached to
-        app.getGameManager().morph(new Empty(), locX, locY, locZ,
-                ArenaConstants.LAYER_LOWER_OBJECTS);
-        SoundManager.playSound(SoundConstants.SOUND_CRACK);
-        return DirectionConstants.NONE;
+    public int laserEnteredAction(final int locX, final int locY, final int locZ, final int dirX, final int dirY,
+	    final int laserType, final int forceUnits) {
+	final Application app = LTRemix.getApplication();
+	app.getGameManager().morph(new Empty(), locX, locY, locZ, this.getPrimaryLayer());
+	// Destroy whatever we were attached to
+	app.getGameManager().morph(new Empty(), locX, locY, locZ, ArenaConstants.LAYER_LOWER_OBJECTS);
+	SoundManager.playSound(SoundConstants.SOUND_CRACK);
+	return DirectionConstants.NONE;
     }
 
     @Override
-    public void moveFailedAction(final int locX, final int locY,
-            final int locZ) {
-        final Application app = LTRemix.getApplication();
-        app.getGameManager().morph(new Empty(), locX, locY, locZ,
-                this.getPrimaryLayer());
-        // Destroy whatever we were attached to
-        app.getGameManager().morph(new Empty(), locX, locY, locZ,
-                ArenaConstants.LAYER_LOWER_OBJECTS);
-        SoundManager.playSound(SoundConstants.SOUND_CRACK);
+    public void moveFailedAction(final int locX, final int locY, final int locZ) {
+	final Application app = LTRemix.getApplication();
+	app.getGameManager().morph(new Empty(), locX, locY, locZ, this.getPrimaryLayer());
+	// Destroy whatever we were attached to
+	app.getGameManager().morph(new Empty(), locX, locY, locZ, ArenaConstants.LAYER_LOWER_OBJECTS);
+	SoundManager.playSound(SoundConstants.SOUND_CRACK);
     }
 }

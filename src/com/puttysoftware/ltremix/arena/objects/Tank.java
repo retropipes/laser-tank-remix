@@ -13,35 +13,35 @@ import com.puttysoftware.ltremix.utilities.DirectionConstants;
 public class Tank extends AbstractCharacter {
     // Constructors
     public Tank() {
-        super(true, 0);
-        this.setDirection(DirectionConstants.NORTH);
+	super(true, 0);
+	this.setDirection(DirectionConstants.NORTH);
     }
 
     public Tank(final int dir, final int instance) {
-        super(true, instance);
-        this.setDirection(dir);
+	super(true, instance);
+	this.setDirection(dir);
     }
 
     @Override
     public boolean editorPlaceHook(final int x, final int y, final int z) {
-        final ArenaEditor me = LTRemix.getApplication().getEditor();
-        me.setPlayerLocation();
-        return false;
+	final ArenaEditor me = LTRemix.getApplication().getEditor();
+	me.setPlayerLocation();
+	return false;
     }
 
     @Override
     public void editorRemoveHook(final int x, final int y, final int z) {
-        final ArenaEditor me = LTRemix.getApplication().getEditor();
-        me.clearPlayerLocation();
+	final ArenaEditor me = LTRemix.getApplication().getEditor();
+	me.clearPlayerLocation();
     }
 
     @Override
     public final int getStringBaseID() {
-        return 36;
+	return 36;
     }
 
     @Override
     public boolean isDirectional() {
-        return true;
+	return true;
     }
 }

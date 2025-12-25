@@ -10,7 +10,7 @@ import com.puttysoftware.ltremix.utilities.TypeConstants;
 public abstract class AbstractTriggerButtonDoor extends AbstractButtonDoor {
     // Constructors
     protected AbstractTriggerButtonDoor() {
-        super();
-        this.type.set(TypeConstants.TYPE_TRIGGER_BUTTON_DOOR);
+	super();
+	this.type.set(TypeConstants.TYPE_TRIGGER_BUTTON_DOOR);
     }
 }
